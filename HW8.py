@@ -23,8 +23,8 @@ def get_restaurant_data(db_filename):
         dict['building'] = i[1]
         dict['rating'] = i[3]
         rest_list.append(dict)
+    # print(rest_list)
     return rest_list
-    pass
 
 def barchart_restaurant_categories(db_filename):
     """
@@ -32,6 +32,10 @@ def barchart_restaurant_categories(db_filename):
     restaurant categories and the values should be the number of restaurants in each category. The function should
     also create a bar chart with restaurant categories and the counts of each category.
     """
+    path = os.path.dirname(os.path.abspath(__file__))
+    conn = sqlite3.connect(path+'/'+db_filename)
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(categories.category), categories.category FROM restaurants JOIN categories ON restaurants.category_id = categories.id GROUP BY category")
     pass
 
 #EXTRA CREDIT
