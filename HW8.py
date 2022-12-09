@@ -92,7 +92,7 @@ def highest_rated_category(db_filename):#Do this through DB as well
     plt.title("Average Restaurant Ratings by Category")
     plt.show()
 
-    print(tup[-1])
+    # print(tup[-1])
     return tup[-1]
     pass
 
